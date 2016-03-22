@@ -20,3 +20,17 @@ public with sharing class FlickHandler {
     
     public FlickrData {get; set;}
         .......
+        
+// http web request
+    public FlickrList getFlickrData(string tag) {
+        HttpRequest req = new HttpRequest();
+        
+        req.setMethod('GET');
+        req.setEndpoint('https://api.flickr.com/services/feeds/....');
+        
+        HTTP http = new HTTP();
+        HTTPResponse res = http.send(req);
+        
+        return (FlickrList)JSON.deserialize(res.getBody().replace('\\\'',''),FlickrList.class);
+    }
+    
