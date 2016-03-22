@@ -1,0 +1,10 @@
+<apex:page controller="FlickrHandler">
+
+    <apex:repeat value="{!data.items}" var="img">
+      <div style="position: inline; float; left;">
+        {!img.table}<br /><img src="{!img.media.m}" />
+        <br />
+      </div>
+      </apex:repeat>
+      
+</apex>
